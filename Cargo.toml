@@ -1,0 +1,33 @@
+[package]
+name = "slot-pulse"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "slot_pulse"
+path = "src/lib.rs"
+
+[dev-dependencies]
+# Solana runtime & execution
+solana-runtime            = { path = "../runtime",             features = ["agave-unstable-api", "dev-context-only-utils"] }
+solana-runtime-transaction = { path = "../runtime-transaction", features = ["agave-unstable-api", "dev-context-only-utils"] }
+solana-transaction        = "4.1.1"
+solana-system-transaction = "4.0.0"
+solana-pubkey             = "4.2.0"
+
+# Ledger & storage
+solana-ledger = { path = "../ledger", features = ["agave-unstable-api", "dev-context-only-utils"] }
+solana-entry  = { path = "../entry",  features = ["agave-unstable-api", "dev-context-only-utils"] }
+
+# Consensus & block production
+solana-core = { path = "../core", features = ["agave-unstable-api", "dev-context-only-utils"] }
+solana-poh  = { path = "../poh",  features = ["agave-unstable-api"] }
+
+# Networking & packets
+solana-perf = { path = "../perf", features = ["agave-unstable-api"] }
+agave-banking-stage-ingress-types = { path = "../banking-stage-ingress-types", features = ["agave-unstable-api"] }
+
+# Utilities
+agave-logger     = { path = "../logger", features = ["agave-unstable-api"] }
+crossbeam-channel = "0.5.15"
+tokio            = { version = "1.52.3", features = ["rt", "rt-multi-thread"] }
